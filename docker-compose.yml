@@ -1,0 +1,19 @@
+services:
+  gamification-portal-api:
+    image: gamification-portal-api
+    build: ./api/
+    container_name: gamification-portal-api
+    ports:
+      - 8000:8000
+    volumes:
+      - ./api/data/:/usr/src/app/data/
+    command: "uvicorn server:app --host 0.0.0.0"
+    restart: unless-stopped
+  gamification-portal-frontend:
+    image: gamitification-portal-frontend
+    build: ./frontend/
+    container_name: gamification-portal-frontend
+    ports: 
+      - 3000:3000
+    command: "npm run dev"
+    restart: unless-stopped

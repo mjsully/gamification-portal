@@ -1,0 +1,18 @@
+{
+	"name": "gamification-portal-api",
+	"image": "python:3.10-alpine",
+	"extensions": [
+	  "ms-python.python",
+	  "ms-python.vscode-pylance",
+	  "ms-python.pylint",
+	  "github.vscode-github-actions",
+	  "ms-python.flake8"
+	],
+	"forwardPorts": [8000],
+	"workspaceMount": "source=${localWorkspaceFolder}/api,target=/workspace,type=bind",
+	"workspaceFolder": "/workspace",
+	"postCreateCommand": "pip install -r requirements-dev.txt",
+	// "runArgs": ["--env-file",".devcontainer/api/.env"]
+  }
+  
+  
